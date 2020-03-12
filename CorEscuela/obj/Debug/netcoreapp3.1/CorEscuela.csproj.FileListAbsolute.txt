@@ -1,0 +1,11 @@
+D:\HP\1.Portafolio\Proyecto_C-\CorEscuela\bin\Debug\netcoreapp3.1\CorEscuela.exe
+D:\HP\1.Portafolio\Proyecto_C-\CorEscuela\bin\Debug\netcoreapp3.1\CorEscuela.deps.json
+D:\HP\1.Portafolio\Proyecto_C-\CorEscuela\bin\Debug\netcoreapp3.1\CorEscuela.runtimeconfig.json
+D:\HP\1.Portafolio\Proyecto_C-\CorEscuela\bin\Debug\netcoreapp3.1\CorEscuela.runtimeconfig.dev.json
+D:\HP\1.Portafolio\Proyecto_C-\CorEscuela\bin\Debug\netcoreapp3.1\CorEscuela.dll
+D:\HP\1.Portafolio\Proyecto_C-\CorEscuela\bin\Debug\netcoreapp3.1\CorEscuela.pdb
+D:\HP\1.Portafolio\Proyecto_C-\CorEscuela\obj\Debug\netcoreapp3.1\CorEscuela.csprojAssemblyReference.cache
+D:\HP\1.Portafolio\Proyecto_C-\CorEscuela\obj\Debug\netcoreapp3.1\CorEscuela.AssemblyInfoInputs.cache
+D:\HP\1.Portafolio\Proyecto_C-\CorEscuela\obj\Debug\netcoreapp3.1\CorEscuela.AssemblyInfo.cs
+D:\HP\1.Portafolio\Proyecto_C-\CorEscuela\obj\Debug\netcoreapp3.1\CorEscuela.dll
+D:\HP\1.Portafolio\Proyecto_C-\CorEscuela\obj\Debug\netcoreapp3.1\CorEscuela.pdb
