@@ -11,6 +11,7 @@ namespace CorEscuela
 
         public void Timbrar()
         {
+            //Funcion para timbrar
             Console.Beep(2000, 3000);
         }
     }
