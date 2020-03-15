@@ -28,10 +28,22 @@ namespace CoreEscuela.Entidades
         //Constructor de la manera mas corta por tuplas(lenguajes funcionales)
         public Escuela(string nombre, int año) => (Nombre, AñoDeCreacion) = (nombre, año);
 
+
+        public Escuela(string nombre, int año,
+                    TiposEscuela tipos,
+                    string pais = "", string ciudad = "")
+        {
+            (Nombre, AñoDeCreacion) = (nombre, año);
+            Pais = pais;
+            Ciudad = ciudad;
+        }
+
+
         //Sobreescribir
         public override string ToString()
         {
-            return $"Nombre: {Nombre}, Tipo: {TipoEscuela} \nPais: {Pais}, Ciudad: {Ciudad}";
+            //return $"Nombre: {Nombre}, Tipo: {TipoEscuela} \nPais: {Pais}, Ciudad: {Ciudad}";
+            return $"Nombre: \"{Nombre}\", Tipo: {TipoEscuela} {System.Environment.NewLine} Pais: {Pais}, Ciudad: {Ciudad}";
 
         }
 
