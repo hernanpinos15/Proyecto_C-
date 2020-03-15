@@ -10,7 +10,8 @@ namespace Etapa1
             var escuela = new Escuela("HP ACADEMY",2012);
             escuela.Pais = "Ecuador";
             escuela.Ciudad = "Riobamba";
-            Console.WriteLine(escuela.Nombre);
+            escuela.TipoEscuela = TiposEscuela.Primaria;
+            Console.WriteLine(escuela);
         }
     }
 }

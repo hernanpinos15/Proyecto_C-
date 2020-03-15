@@ -16,6 +16,8 @@ namespace CoreEscuela.Entidades
 
         public string Ciudad { get; set; }
 
+        public TiposEscuela TipoEscuela { get; set; }
+
         /*
                 public Escuela(string nombre, int año){
                     this.nombre = nombre;
@@ -25,6 +27,13 @@ namespace CoreEscuela.Entidades
 
         //Constructor de la manera mas corta por tuplas(lenguajes funcionales)
         public Escuela(string nombre, int año) => (Nombre, AñoDeCreacion) = (nombre, año);
+
+        //Sobreescribir
+        public override string ToString()
+        {
+            return $"Nombre: {Nombre}, Tipo: {TipoEscuela} \nPais: {Pais}, Ciudad: {Ciudad}";
+
+        }
 
     }
 }
