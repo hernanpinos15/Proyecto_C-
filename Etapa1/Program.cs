@@ -11,7 +11,10 @@ namespace Etapa1
                                     TiposEscuela.Primaria,
                                     pais: "Ecuador", ciudad: "Riobamba");
 
-            var curso1 = new Curso()
+            //Arreglo de objetos
+            var arregloCursos = new Curso[3];
+
+            arregloCursos[0] = new Curso()
             {
                 Nombre = "101",
             };
@@ -20,8 +23,9 @@ namespace Etapa1
             {
                 Nombre = "201",
             };
+            arregloCursos[1] = curso2;
 
-            var curso3 = new Curso()
+            arregloCursos[2] = new Curso
             {
                 Nombre = "301",
             };
@@ -30,9 +34,17 @@ namespace Etapa1
             Console.WriteLine(escuela);
             //cw
             System.Console.WriteLine("====================");
-            Console.WriteLine(curso1.Nombre + ", " + curso1.UniqueId);
-            Console.WriteLine($"{curso2.Nombre} , {curso1.UniqueId}");
-            Console.WriteLine(curso3);
+            ImprimirCursos(arregloCursos);
+        }
+
+        private static void ImprimirCursos(Curso[] arregloCursos)
+        {
+            int contador = 0;
+            while (contador < arregloCursos.Length)
+            {
+                Console.WriteLine($"Nombre {arregloCursos[contador].Nombre}, Id {arregloCursos[contador].UniqueId}");
+                contador++;
+            }
         }
     }
 }
