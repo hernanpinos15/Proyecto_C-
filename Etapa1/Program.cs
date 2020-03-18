@@ -59,17 +59,34 @@ namespace Etapa1
             var otraColeccion = new List<Curso>(){
                     new Curso(){ Nombre = "401", Jornada = TiposJornada.Mañana},
                     new Curso(){Nombre = "501", Jornada = TiposJornada.Mañana},
-                    new Curso{Nombre = "502", Jornada = TiposJornada.Tarde}
+                    new Curso{Nombre = "501", Jornada = TiposJornada.Tarde}
             };
             //otraColeccion.Clear();
+            
+            //Codigo para remove datos
+            /*
+            Curso tmp = new Curso { Nombre = "101-vACACION", Jornada = TiposJornada.Noche };
+            escuela.Cursos.Add(tmp);
+            WriteLine("Curso.Hash"+ tmp.GetHashCode());
+            escuela.Cursos.Remove(tmp);
+            */
+
             escuela.Cursos.AddRange(otraColeccion);
-            //Curso tmp = new Curso { Nombre = "101-vACACION", Jornada = TiposJornada.Noche };
-            //escuela.Cursos.Add(tmp);
             ImprimirCursosEscuela(escuela);
-            //WriteLine("Curso.Hash"+ tmp.GetHashCode());
-            //escuela.Cursos.Remove(tmp);
+
+            //Remover datos mediante los predicados declarando funcion
+            /*
             Predicate<Curso> miAlgoritmo = Predicado;
-            escuela.Cursos.RemoveAll(miAlgoritmo);
+            escuela.Cursos.RemoveAll(Predicado);
+            */
+            //Funcion con delegado
+            escuela.Cursos.RemoveAll(delegate (Curso cur)
+            {
+                return cur.Nombre == "301";
+            });
+            //Expresiones lambda
+            escuela.Cursos.RemoveAll((cur) => cur.Nombre == "501" && cur.Jornada == TiposJornada.Mañana);
+
             WriteLine("=======================");
             ImprimirCursosEscuela(escuela);
 
