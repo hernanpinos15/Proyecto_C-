@@ -17,6 +17,8 @@ namespace CoreEscuela
             Printer.Beep(10000, cantidad: 10);
             ImprimirCursosEscuela(engine.Escuela);
 
+            //var obk = new ObjetoEscuelaBase();
+
         }
 
         private static void ImprimirCursosEscuela(Escuela escuela)
