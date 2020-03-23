@@ -18,6 +18,34 @@ namespace CoreEscuela
             ImprimirCursosEscuela(engine.Escuela);
 
             //var obk = new ObjetoEscuelaBase();
+            Printer.DrawLine(20);
+            Printer.DrawLine(20);
+            Printer.DrawLine(20);
+            Printer.WriteTitle("Puebas de Polimorfismo");
+
+            var alumnoTest = new Alumno { Nombre = "Pepito Espejo" };
+            Printer.WriteTitle("Alumno");
+            WriteLine($"Alumno: {alumnoTest.Nombre}");
+            WriteLine($"Alumno: {alumnoTest.UniqueId}");
+            WriteLine($"Alumno: {alumnoTest.GetType()}");
+
+            ObjetoEscuelaBase ob = alumnoTest;
+            Printer.WriteTitle("ObjetoEscuela");
+            WriteLine($"Alumno: {ob.Nombre}");
+            WriteLine($"Alumno: {ob.UniqueId}");
+            WriteLine($"Alumno: {ob.GetType()}");
+
+            var objDummy = new ObjetoEscuelaBase(){Nombre="Juanito Espejo"};
+            Printer.WriteTitle("ObjetoEscuelaBase");
+            WriteLine($"Alumno: {objDummy.Nombre}");
+            WriteLine($"Alumno: {objDummy.UniqueId}");
+            WriteLine($"Alumno: {objDummy.GetType()}");
+
+            alumnoTest = (Alumno) ob;
+            Printer.WriteTitle("Alumno");
+            WriteLine($"Alumno: {alumnoTest.Nombre}");
+            WriteLine($"Alumno: {alumnoTest.UniqueId}");
+            WriteLine($"Alumno: {alumnoTest.GetType()}");
 
         }
 
