@@ -26,25 +26,47 @@ namespace CoreEscuela
         }
 
 
-        public List<ObjetoEscuelaBase> GetObjetosEscuela()
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+            out int contEvaluaciones,
+            out int contAlumnos,
+            out int contAsignaturas,
+            out int contCursos,
+            bool traeEvaluaciones = true,
+            bool traeAlumnos = true,
+            bool traeAsignaturas = true,
+            bool traeCursos = true
+            )
         {
+            contEvaluaciones = contAsignaturas = contAlumnos = 0;
             var listaObj = new List<ObjetoEscuelaBase>();
             listaObj.Add(Escuela);
-            listaObj.AddRange(Escuela.Cursos);
+            if (traeCursos)
+                listaObj.AddRange(Escuela.Cursos);
 
+            contCursos = Escuela.Cursos.Count;
             foreach (var curso in Escuela.Cursos)
             {
-                listaObj.AddRange(curso.Asignaturas);
-                listaObj.AddRange(curso.Alumnos);
+                contAsignaturas += curso.Asignaturas.Count;
+                contAlumnos += curso.Alumnos.Count;
+                if (traeAsignaturas)
+                    listaObj.AddRange(curso.Asignaturas);
 
-                foreach (var alumno in curso.Alumnos)
+                if (traeAlumnos)
+                    listaObj.AddRange(curso.Alumnos);
+
+                if (traeEvaluaciones)
                 {
-                    listaObj.AddRange(alumno.Evaluaciones);
+                    foreach (var alumno in curso.Alumnos)
+                    {
+                        listaObj.AddRange(alumno.Evaluaciones);
+                        contEvaluaciones += alumno.Evaluaciones.Count;
+                    }
                 }
-            }
 
+            }
             return listaObj;
         }
+
 
         #region Metodos de carga
         private void CargarEvaluaciones()

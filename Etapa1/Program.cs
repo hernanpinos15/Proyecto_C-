@@ -19,10 +19,12 @@ namespace CoreEscuela
             ImprimirCursosEscuela(engine.Escuela);
             var listaObjetos = engine.GetObjetosEscuela();
 
+            /*
+            //Interfaces
             var ListaILugar = from obj in listaObjetos
                             where obj is ILugar 
                               select (ILugar)obj;
-            //engine.Escuela.LimpiarLugar();
+            */
 
             /*
             //var obk = new ObjetoEscuelaBase();
