@@ -47,7 +47,6 @@ namespace CoreEscuela
         }
 
         #region Metodos de carga
-
         private void CargarEvaluaciones()
         {
             var lista = new List<Evaluacion>();
