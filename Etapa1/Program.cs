@@ -14,9 +14,11 @@ namespace CoreEscuela
             var engine = new EscuelaEngine();
             engine.Inicializar();
             Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
-            Printer.Beep(10000, cantidad: 10);
+            //Printer.Beep(10000, cantidad: 10);
             ImprimirCursosEscuela(engine.Escuela);
-
+            var listaObjetos = engine.GetObjetoEscuela();
+            
+            /*
             //var obk = new ObjetoEscuelaBase();
             Printer.DrawLine(20);
             Printer.DrawLine(20);
@@ -35,17 +37,29 @@ namespace CoreEscuela
             WriteLine($"Alumno: {ob.UniqueId}");
             WriteLine($"Alumno: {ob.GetType()}");
 
-            var objDummy = new ObjetoEscuelaBase(){Nombre="Juanito Espejo"};
+            var objDummy = new ObjetoEscuelaBase() { Nombre = "Juanito Espejo" };
             Printer.WriteTitle("ObjetoEscuelaBase");
             WriteLine($"Alumno: {objDummy.Nombre}");
             WriteLine($"Alumno: {objDummy.UniqueId}");
             WriteLine($"Alumno: {objDummy.GetType()}");
 
-            alumnoTest = (Alumno) ob;
-            Printer.WriteTitle("Alumno");
-            WriteLine($"Alumno: {alumnoTest.Nombre}");
-            WriteLine($"Alumno: {alumnoTest.UniqueId}");
-            WriteLine($"Alumno: {alumnoTest.GetType()}");
+            var evaluacion = new Evaluacion() { Nombre = "Matematicas", Nota = 4.5f };
+            Printer.WriteTitle("Evaluacion");
+            WriteLine($"Evaluacion: {evaluacion.Nombre}");
+            WriteLine($"Evaluacion: {evaluacion.UniqueId}");
+            WriteLine($"Evaluacion: {evaluacion.Nota}");
+            WriteLine($"Evaluacion: {evaluacion.GetType()}");
+
+            //ob = evaluacion;
+            //is para preguntar si un objeto es de un tipo determinado
+            if (ob is Alumno)
+            {
+                Alumno alumnoRecuperado = (Alumno)ob;
+            }
+
+            //as tomar el objeto de cual estamos refiriendonos
+            Alumno alumnoRecuperado2 = ob as Alumno;
+            */
 
         }
 
