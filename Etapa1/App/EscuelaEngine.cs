@@ -25,6 +25,29 @@ namespace CoreEscuela
             CargarEvaluaciones();
         }
 
+
+        public List<ObjetoEscuelaBase> GetObjetosEscuela()
+        {
+            var listaObj = new List<ObjetoEscuelaBase>();
+            listaObj.Add(Escuela);
+            listaObj.AddRange(Escuela.Cursos);
+
+            foreach (var curso in Escuela.Cursos)
+            {
+                listaObj.AddRange(curso.Asignaturas);
+                listaObj.AddRange(curso.Alumnos);
+
+                foreach (var alumno in curso.Alumnos)
+                {
+                    listaObj.AddRange(alumno.Evaluaciones);
+                }
+            }
+
+            return listaObj;
+        }
+
+        #region Metodos de carga
+
         private void CargarEvaluaciones()
         {
             var lista = new List<Evaluacion>();
@@ -50,26 +73,6 @@ namespace CoreEscuela
                 }
             }
         }
-        public List<ObjetoEscuelaBase> GetObjetosEscuela()
-        {
-            var listaObj = new List<ObjetoEscuelaBase>();
-            listaObj.Add(Escuela);
-            listaObj.AddRange(Escuela.Cursos);
-
-            foreach (var curso in Escuela.Cursos)
-            {
-                listaObj.AddRange(curso.Asignaturas);
-                listaObj.AddRange(curso.Alumnos);
-
-                foreach (var alumno in curso.Alumnos)
-                {
-                    listaObj.AddRange(alumno.Evaluaciones);
-                }
-            }
-
-            return listaObj;
-        }
-
         private void CargarAsignaturas()
         {
             foreach (var curso in Escuela.Cursos)
@@ -114,22 +117,6 @@ namespace CoreEscuela
                 c.Alumnos = GenerarAlumnosAlAzar(cantidadRandom);
             }
         }
-
-        public List<ObjetoEscuelaBase> GetObjetoEscuela()
-        {
-            var listaObj = new List<ObjetoEscuelaBase>();
-            listaObj.Add(Escuela);
-            listaObj.AddRange(Escuela.Cursos);
-            foreach (var curso in Escuela.Cursos)
-            {
-                listaObj.AddRange(curso.Asignaturas);
-                listaObj.AddRange(curso.Alumnos);
-                foreach (var alumno in curso.Alumnos)
-                {
-                    listaObj.AddRange(alumno.Evaluaciones);
-                }
-            }
-            return listaObj; 
-        }
     }
+    #endregion
 }
