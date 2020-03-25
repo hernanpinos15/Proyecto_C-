@@ -18,6 +18,11 @@ namespace CoreEscuela
             //Printer.Beep(10000, cantidad: 10);
             ImprimirCursosEscuela(engine.Escuela);
             var listaObjetos = engine.GetObjetosEscuela();
+
+
+
+            /*
+            //Implementacion de diccionarios
             Dictionary<int, string> diccionario = new Dictionary<int, string>();
             diccionario.Add(10, "Pepito");
             diccionario.Add(20, "Loren");
@@ -34,7 +39,7 @@ namespace CoreEscuela
             WriteLine(dic["Luna"]);
             dic["Luna"] = "Protagonista de Soy Luna";
             WriteLine(dic["Luna"]);
-
+            */
 
             /*
             //Interfaces
