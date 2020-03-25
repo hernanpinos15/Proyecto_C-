@@ -25,6 +25,49 @@ namespace CoreEscuela
             CargarEvaluaciones();
         }
 
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+            bool traeEvaluaciones = true,
+            bool traeAlumnos = true,
+            bool traeAsignaturas = true,
+            bool traeCursos = true
+            )
+        {
+            return GetObjetosEscuela(out int dummy, out dummy, out dummy, out dummy);
+        }
+
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+            out int contEvaluaciones,
+            bool traeEvaluaciones = true,
+            bool traeAlumnos = true,
+            bool traeAsignaturas = true,
+            bool traeCursos = true
+            )
+        {
+            return GetObjetosEscuela(out contEvaluaciones, out int dummy, out dummy, out dummy);
+        }
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+            out int contEvaluaciones,
+            out int contAlumnos,
+            bool traeEvaluaciones = true,
+            bool traeAlumnos = true,
+            bool traeAsignaturas = true,
+            bool traeCursos = true
+            )
+        {
+            return GetObjetosEscuela(out contEvaluaciones, out contAlumnos, out int dummy, out dummy);
+        }
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+            out int contEvaluaciones,
+            out int contAlumnos,
+            out int contAsignaturas,
+            bool traeEvaluaciones = true,
+            bool traeAlumnos = true,
+            bool traeAsignaturas = true,
+            bool traeCursos = true
+            )
+        {
+            return GetObjetosEscuela(out contEvaluaciones, out contAlumnos, out contAsignaturas, out int dummy);
+        }
 
         public List<ObjetoEscuelaBase> GetObjetosEscuela(
             out int contEvaluaciones,
