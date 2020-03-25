@@ -25,7 +25,7 @@ namespace CoreEscuela
             CargarEvaluaciones();
         }
 
-        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
             bool traeEvaluaciones = true,
             bool traeAlumnos = true,
             bool traeAsignaturas = true,
@@ -35,7 +35,7 @@ namespace CoreEscuela
             return GetObjetosEscuela(out int dummy, out dummy, out dummy, out dummy);
         }
 
-        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
             out int contEvaluaciones,
             bool traeEvaluaciones = true,
             bool traeAlumnos = true,
@@ -45,7 +45,7 @@ namespace CoreEscuela
         {
             return GetObjetosEscuela(out contEvaluaciones, out int dummy, out dummy, out dummy);
         }
-        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
             out int contEvaluaciones,
             out int contAlumnos,
             bool traeEvaluaciones = true,
@@ -56,7 +56,7 @@ namespace CoreEscuela
         {
             return GetObjetosEscuela(out contEvaluaciones, out contAlumnos, out int dummy, out dummy);
         }
-        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
             out int contEvaluaciones,
             out int contAlumnos,
             out int contAsignaturas,
@@ -69,7 +69,8 @@ namespace CoreEscuela
             return GetObjetosEscuela(out contEvaluaciones, out contAlumnos, out contAsignaturas, out int dummy);
         }
 
-        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        //IReadOnlyList lista pero solo en modo lectura
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
             out int contEvaluaciones,
             out int contAlumnos,
             out int contAsignaturas,
@@ -107,7 +108,7 @@ namespace CoreEscuela
                 }
 
             }
-            return listaObj;
+            return listaObj.AsReadOnly();
         }
 
 
