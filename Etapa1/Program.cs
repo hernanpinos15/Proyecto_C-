@@ -19,6 +19,8 @@ namespace CoreEscuela
             ImprimirCursosEscuela(engine.Escuela);
             var listaObjetos = engine.GetObjetosEscuela();
 
+            var dictmp = engine.GetDiccionarioObjetos();
+            engine.ImprimirDiccionario(dictmp);
 
 
             /*
@@ -49,44 +51,11 @@ namespace CoreEscuela
             */
 
             /*
-            //var obk = new ObjetoEscuelaBase();
-            Printer.DrawLine(20);
-            Printer.DrawLine(20);
-            Printer.DrawLine(20);
-            Printer.WriteTitle("Puebas de Polimorfismo");
-
-            var alumnoTest = new Alumno { Nombre = "Pepito Espejo" };
-            Printer.WriteTitle("Alumno");
-            WriteLine($"Alumno: {alumnoTest.Nombre}");
-            WriteLine($"Alumno: {alumnoTest.UniqueId}");
-            WriteLine($"Alumno: {alumnoTest.GetType()}");
-
-            ObjetoEscuelaBase ob = alumnoTest;
-            Printer.WriteTitle("ObjetoEscuela");
-            WriteLine($"Alumno: {ob.Nombre}");
-            WriteLine($"Alumno: {ob.UniqueId}");
-            WriteLine($"Alumno: {ob.GetType()}");
-
-            var objDummy = new ObjetoEscuelaBase() { Nombre = "Juanito Espejo" };
-            Printer.WriteTitle("ObjetoEscuelaBase");
-            WriteLine($"Alumno: {objDummy.Nombre}");
-            WriteLine($"Alumno: {objDummy.UniqueId}");
-            WriteLine($"Alumno: {objDummy.GetType()}");
-
-            var evaluacion = new Evaluacion() { Nombre = "Matematicas", Nota = 4.5f };
-            Printer.WriteTitle("Evaluacion");
-            WriteLine($"Evaluacion: {evaluacion.Nombre}");
-            WriteLine($"Evaluacion: {evaluacion.UniqueId}");
-            WriteLine($"Evaluacion: {evaluacion.Nota}");
-            WriteLine($"Evaluacion: {evaluacion.GetType()}");
-
-            //ob = evaluacion;
             //is para preguntar si un objeto es de un tipo determinado
             if (ob is Alumno)
             {
                 Alumno alumnoRecuperado = (Alumno)ob;
             }
-
             //as tomar el objeto de cual estamos refiriendonos
             Alumno alumnoRecuperado2 = ob as Alumno;
             */

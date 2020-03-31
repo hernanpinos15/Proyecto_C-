@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CoreEscuela.Entidades;
+using CoreEscuela.Util;
 
 namespace CoreEscuela
 {
@@ -31,10 +32,41 @@ namespace CoreEscuela
             var diccionario = new Dictionary<LLaveDiccionario, IEnumerable<ObjetoEscuelaBase>>();
 
             diccionario.Add(LLaveDiccionario.Escuela, new[] { Escuela });
-            diccionario.Add(LLaveDiccionario.Curso, Escuela.Cursos.Cast<ObjetoEscuelaBase>());
-            diccionario[LLaveDiccionario.Curso] = Escuela.Cursos.Cast<ObjetoEscuelaBase>();
+            diccionario.Add(LLaveDiccionario.Curso,
+                                                    Escuela.Cursos.Cast<ObjetoEscuelaBase>());
+            var listatmp = new List<Evaluacion>();
+            var listatmpas = new List<Asignatura>();
+            var listatmpal = new List<Alumno>();
+            foreach (var cur in Escuela.Cursos)
+            {
+                listatmpas.AddRange(cur.Asignaturas);
+                listatmpal.AddRange(cur.Alumnos);
+
+                foreach (var alum in cur.Alumnos)
+                {
+                    listatmp.AddRange(alum.Evaluaciones);
+                }
+            }
+            diccionario.Add(LLaveDiccionario.Asignatura,
+                                                listatmpas.Cast<ObjetoEscuelaBase>());
+            diccionario.Add(LLaveDiccionario.Alumno,
+                                                listatmpal.Cast<ObjetoEscuelaBase>());
+            diccionario.Add(LLaveDiccionario.Evaluacion,
+                                                listatmp.Cast<ObjetoEscuelaBase>());
 
             return diccionario;
+        }
+
+        public void ImprimirDiccionario(Dictionary<LLaveDiccionario, IEnumerable<ObjetoEscuelaBase>> dic)
+        {
+            foreach (var obj in dic)
+            {
+                Printer.WriteTitle(obj.Key.ToString());
+                foreach (var val in obj.Value)
+                {
+                    Console.WriteLine(val);
+                }
+            }
         }
 
         public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
