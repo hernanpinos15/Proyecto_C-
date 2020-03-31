@@ -16,11 +16,16 @@ namespace CoreEscuela
             engine.Inicializar();
             Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
             //Printer.Beep(10000, cantidad: 10);
-            ImprimirCursosEscuela(engine.Escuela);
-            var listaObjetos = engine.GetObjetosEscuela();
+            //ImprimirCursosEscuela(engine.Escuela);
 
+            /*
+            //Obtener los objetos mediante una lista
+            var listaObjetos = engine.GetObjetosEscuela();
+            */
+
+            //Obtener los objetos mediante un diccionario
             var dictmp = engine.GetDiccionarioObjetos();
-            engine.ImprimirDiccionario(dictmp);
+            engine.ImprimirDiccionario(dictmp, false);
 
 
             /*
