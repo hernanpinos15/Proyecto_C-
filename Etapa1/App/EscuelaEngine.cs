@@ -25,11 +25,15 @@ namespace CoreEscuela
             CargarEvaluaciones();
         }
 
-        public Dictionary<string, IEnumerable<ObjetoEscuelaBase>> GetDiccionarioObjetos()
+        public Dictionary<LLaveDiccionario, IEnumerable<ObjetoEscuelaBase>> GetDiccionarioObjetos()
         {
-            var diccionario = new Dictionary<string, IEnumerable<ObjetoEscuelaBase>>();
-            diccionario.Add("Escuela", new[] { Escuela });
-            diccionario.Add("Cursos", Escuela.Cursos.Cast<ObjetoEscuelaBase>());
+
+            var diccionario = new Dictionary<LLaveDiccionario, IEnumerable<ObjetoEscuelaBase>>();
+
+            diccionario.Add(LLaveDiccionario.Escuela, new[] { Escuela });
+            diccionario.Add(LLaveDiccionario.Curso, Escuela.Cursos.Cast<ObjetoEscuelaBase>());
+            diccionario[LLaveDiccionario.Curso] = Escuela.Cursos.Cast<ObjetoEscuelaBase>();
+
             return diccionario;
         }
 
