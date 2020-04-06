@@ -16,19 +16,35 @@ namespace CoreEscuela.App
         }
 
         //IEnumerable = lista generica
-        public IEnumerable<Escuela> GetListaEvaluaciones()
+        public IEnumerable<Evaluacion> GetListaEvaluaciones()
         {
-            //var lista = _diccionario.GetValueOrDefault(LlaveDiccionario.Escuela);
-            //return lista.Cast<Escuela>();
-            IEnumerable<Escuela> rta;
-            if (_diccionario.TryGetValue(LlaveDiccionario.Escuela, out IEnumerable<ObjetoEscuelaBase> lista))
+            if (_diccionario.TryGetValue(LlaveDiccionario.Evaluacion, out IEnumerable<ObjetoEscuelaBase> lista))
             {
-                rta = lista.Cast<Escuela>();
-            }else{
-                rta = null;
+                return lista.Cast<Evaluacion>();
             }
+            {
+                return new List<Evaluacion>();
+            }
+        }
+        public IEnumerable<string> GetListaAsignaturas()
+        {
+            var listaEvaluaciones = GetListaEvaluaciones();
 
-            return rta;
+
+            return (from Evaluacion ev in listaEvaluaciones
+                    select ev.Asignatura.Nombre).Distinct();
+
+            /*
+            return from Evaluacion ev in listaEvaluaciones
+                   where ev.Nota >= 3.0f
+                   select ev.Asignatura;
+            */
+        }
+
+        public Dictionary<string, IEnumerable<Evaluacion>> GetDiccionarioEvaluacionXAsig()
+        {
+            var dictRta = new Dictionary<string, IEnumerable<Evaluacion>>();
+            return dictRta;
         }
     }
 }
