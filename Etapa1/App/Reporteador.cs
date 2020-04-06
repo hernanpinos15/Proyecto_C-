@@ -53,5 +53,25 @@ namespace CoreEscuela.App
 
             return dictRta;
         }
+
+        public Dictionary<string, IEnumerable<object>> GetPromedioAlumnoPorAsignatura()
+        {
+            var rta = new Dictionary<string, IEnumerable<object>>();
+            var dicEvalXAsig = GetDiccionarioEvalXAsig();
+
+            foreach (var asigConEval in dicEvalXAsig)
+            {
+                var dummy = from Evaluacion eval in asigConEval.Value
+                            select new 
+                            {
+                                eval.Alumno.UniqueId,
+                                AlumnoNombre = eval.Alumno.Nombre,
+                                NombreEval = eval.Nombre,
+                                eval.Nota
+                            };
+            }
+
+            return rta;
+        }
     }
 }
