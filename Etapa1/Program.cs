@@ -81,6 +81,11 @@ namespace CoreEscuela
                     Printer.WriteTitle("El valor de la nota no es un número válido");
                     WriteLine("SALIENDO DEL PROGRAMA");
                 }
+                finally
+                {
+                    Printer.WriteTitle("FINALLY"); 
+                    Printer.Beep(2500, 500, 3);
+                }
             }
 
 
