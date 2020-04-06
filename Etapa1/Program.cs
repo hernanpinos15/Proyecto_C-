@@ -31,6 +31,58 @@ namespace CoreEscuela
             var listaEvalXAsig = reporteador.GetDiccionarioEvalXAsig();
             var listaPromeXAsig = reporteador.GetPromedioAlumnoPorAsignatura();
 
+            Printer.WriteTitle("Captura de una Evaluacion por Consola");
+            var newEval = new Evaluacion();
+            string nombre, notaString;
+            float nota;
+
+            WriteLine("Ingrese el nombre de la evaluación");
+            Printer.PresioneEnter();
+            nombre = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                //throw new ArgumentException("El valor del nombre no puede ser vacio");
+                Printer.WriteTitle("El valor del nombre no puede ser vacio");
+                WriteLine("SALIENDO DEL PROGRAMA");
+            }
+            else
+            {
+                newEval.Nombre = nombre.ToLower();
+                WriteLine("El nombre de la evaluación ha sido ingresado correctamente");
+            }
+
+            WriteLine("Ingrese la nota de l aevaluación");
+            Printer.PresioneEnter();
+            notaString = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(notaString))
+            {
+                //throw new ArgumentException("El valor de la nota no puede ser vacio");
+                Printer.WriteTitle("El valor de la nota no puede ser vacio");
+                WriteLine("SALIENDO DEL PROGRAMA");
+            }
+            else
+            {
+                try
+                {
+                    newEval.Nota = float.Parse(notaString);
+                    if (newEval.Nota < 0 || newEval.Nota > 5)
+                    {
+                        throw new ArgumentOutOfRangeException("La nota debe estar entre 0 y 5");
+                    }
+                    WriteLine("La nota de la evaluación ha sido ingresado correctamente");
+                }
+                catch (ArgumentOutOfRangeException arge)
+                {
+                    WriteLine(arge.Message);
+                    WriteLine("SALIENDO DEL PROGRAMA");
+                }
+                catch (Exception)
+                {
+                    Printer.WriteTitle("El valor de la nota no es un número válido");
+                    WriteLine("SALIENDO DEL PROGRAMA");
+                }
+            }
+
 
 
 
