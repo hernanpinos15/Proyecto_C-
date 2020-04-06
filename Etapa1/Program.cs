@@ -16,7 +16,7 @@ namespace CoreEscuela
             //Event = dispara las acciones
             AppDomain.CurrentDomain.ProcessExit += AccionDelEvento;
             AppDomain.CurrentDomain.ProcessExit += (o, s) => Printer.Beep(2000, 1000, 1);
-            AppDomain.CurrentDomain.ProcessExit -= AccionDelEvento;
+            //AppDomain.CurrentDomain.ProcessExit -= AccionDelEvento;
 
             var engine = new EscuelaEngine();
             engine.Inicializar();
@@ -24,8 +24,9 @@ namespace CoreEscuela
             //Printer.Beep(10000, cantidad: 10);
             //ImprimirCursosEscuela(engine.Escuela);
 
-            //var reporteador = new Reporteador(engine.GetDiccionarioObjetos());
-            var reporteador = new Reporteador(null);
+            var reporteador = new Reporteador(engine.GetDiccionarioObjetos());
+            //var reporteador = new Reporteador(null);
+            reporteador.GetListaEvaluaciones();
 
 
 

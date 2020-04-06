@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using CoreEscuela.Entidades;
 
 namespace CoreEscuela.App
@@ -15,6 +16,19 @@ namespace CoreEscuela.App
         }
 
         //IEnumerable = lista generica
-        
+        public IEnumerable<Escuela> GetListaEvaluaciones()
+        {
+            //var lista = _diccionario.GetValueOrDefault(LlaveDiccionario.Escuela);
+            //return lista.Cast<Escuela>();
+            IEnumerable<Escuela> rta;
+            if (_diccionario.TryGetValue(LlaveDiccionario.Escuela, out IEnumerable<ObjetoEscuelaBase> lista))
+            {
+                rta = lista.Cast<Escuela>();
+            }else{
+                rta = null;
+            }
+
+            return rta;
+        }
     }
 }
